@@ -1,0 +1,13 @@
+package com.compony_comunity.backend;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class BackendApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
