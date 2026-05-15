@@ -1,4 +1,4 @@
-package com.compony_comunity.backend.dept.dto;
+package com.company_community.backend.dept.dto;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package com.compony_comunity.backend.Emp.Repository;
+package com.company_community.backend.Emp.Repository;
 
-import com.compony_comunity.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Dto.EmpDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

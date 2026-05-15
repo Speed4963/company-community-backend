@@ -1,4 +1,4 @@
-package com.compony_comunity.backend.Emp.Dto;
+package com.company_community.backend.Emp.Dto;
 
 import jakarta.persistence.*;
 import lombok.*;

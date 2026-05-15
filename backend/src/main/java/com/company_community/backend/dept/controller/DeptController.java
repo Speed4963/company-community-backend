@@ -1,8 +1,8 @@
-package com.compony_comunity.backend.dept.controller;
+package com.company_community.backend.dept.controller;
 
-import com.compony_comunity.backend.dept.dto.DeptDto;
-import com.compony_comunity.backend.dept.entity.Dept;
-import com.compony_comunity.backend.dept.service.DeptService;
+import com.company_community.backend.dept.dto.DeptDto;
+import com.company_community.backend.dept.entity.Dept;
+import com.company_community.backend.dept.service.DeptService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

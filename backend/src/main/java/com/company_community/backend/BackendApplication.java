@@ -1,4 +1,4 @@
-package com.compony_comunity.backend;
+package com.company_community.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
