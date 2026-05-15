@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface DeptRepository extends JpaRepository<Dept, Integer> {
 
     @Query("""
-        SELECT new com.compony_comunity.backend.dept.dto.DeptDto(d.dno, d.dname, d.loc, d.dnumber) 
+        SELECT new com.company_community.backend.dept.dto.DeptDto(d.dno, d.dname, d.loc, d.dnumber) 
         FROM Dept d
         WHERE d.dname LIKE %:searchKeyword%
     """)
