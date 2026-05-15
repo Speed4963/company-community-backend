@@ -1,6 +1,7 @@
 package com.company_community.backend.Emp.Controller;
 
 import com.company_community.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Entity.EmpEntity;
 import com.company_community.backend.Emp.Service.EmpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class EmpController {
      * GET /api/emp/1001
      */
     @GetMapping("/{eno}")
-    public ResponseEntity<EmpDto> getEmpByEno(@PathVariable Long eno) {
+    public ResponseEntity<EmpEntity> getEmpByEno(@PathVariable Long eno) {
         return ResponseEntity.ok(empService.getEmpByEno(eno));
     }
 
@@ -32,7 +33,7 @@ public class EmpController {
      * GET /api/emp/search?ename=홍길동
      */
     @GetMapping("/search")
-    public ResponseEntity<List<EmpDto>> searchEmpsByName(@RequestParam String ename) {
+    public ResponseEntity<List<EmpEntity>> searchEmpsByName(@RequestParam String ename) {
         return ResponseEntity.ok(empService.searchEmpsByName(ename));
     }
 
@@ -41,7 +42,7 @@ public class EmpController {
      * GET /api/emp/dept/10
      */
     @GetMapping("/dept/{dno}")
-    public ResponseEntity<List<EmpDto>> getEmpsByDepartment(@PathVariable Integer dno) {
+    public ResponseEntity<List<EmpEntity>> getEmpsByDepartment(@PathVariable Integer dno) {
         return ResponseEntity.ok(empService.getEmpsByDepartment(dno));
     }
 
@@ -50,7 +51,7 @@ public class EmpController {
      * GET /api/emp/job/MANAGER
      */
     @GetMapping("/job/{job}")
-    public ResponseEntity<List<EmpDto>> getEmpsByJob(@PathVariable String job) {
+    public ResponseEntity<List<EmpEntity>> getEmpsByJob(@PathVariable String job) {
         return ResponseEntity.ok(empService.getEmpsByJob(job));
     }
 }
