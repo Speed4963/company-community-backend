@@ -4,6 +4,7 @@ import com.company_community.backend.Emp.Entity.EmpEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,9 @@ import java.util.Optional;
  */
 @Repository
 public interface EmpRepository extends JpaRepository<EmpEntity, Long> {
+
+    // 사원번호, 이름, 생년월일이 모두 일치하는 사원을 찾는 쿼리 메서드
+    Optional<EmpEntity> findByEnoAndEnameAndBirthdate(Long eno, String ename, LocalDate birthdate);
 
     // 사원번호(ENO)로 단일 사원 조회 (로그인 시 사용)
     Optional<EmpEntity> findByEno(Long eno);

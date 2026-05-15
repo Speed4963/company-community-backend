@@ -26,9 +26,6 @@ public class EmpEntity {
     @Column(name = "JOB", length = 255)
     private String job; // Job Title/Position
 
-    @Column(name = "PASSWORD", nullable = false)
-    private String password; // Login Password (Encrypted)
-
     @Column(name = "HIREDATE")
     private LocalDate hiredate; // Date of Hire
 
