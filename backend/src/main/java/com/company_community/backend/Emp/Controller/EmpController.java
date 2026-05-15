@@ -1,8 +1,10 @@
 package com.company_community.backend.Emp.Controller;
 
 import com.company_community.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Dto.LoginRequest;
 import com.company_community.backend.Emp.Entity.EmpEntity;
 import com.company_community.backend.Emp.Service.EmpService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,34 @@ import java.util.List;
 public class EmpController {
 
     private final EmpService empService;
+
+    /**
+     * 로그인 API
+     * 성공 시 세션에 사원 정보를 저장합니다.
+     */
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
+        try {
+            EmpEntity loginUser = empService.login(loginRequest);
+
+            // 로그인 성공 시 세션에 저장 (서버가 사용자를 기억하도록 함)
+            session.setAttribute("loginUser", loginUser);
+
+            return ResponseEntity.ok(loginUser);
+        } catch (IllegalArgumentException e) {
+            // 정보가 일치하지 않을 경우 401 Unauthorized 또는 에러 메시지 반환
+            return ResponseEntity.status(401).body(e.getMessage());
+        }
+    }
+
+    /**
+     * 로그아웃 API
+     */
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpSession session) {
+        session.invalidate(); // 세션 무효화
+        return ResponseEntity.ok("로그아웃 되었습니다.");
+    }
 
     /**
      * 사원번호(ENO)로 상세 정보 조회
