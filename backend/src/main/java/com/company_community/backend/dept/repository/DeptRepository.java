@@ -1,7 +1,7 @@
-package com.compony_comunity.backend.dept.repository;
+package com.company_community.backend.dept.repository;
 
-import com.compony_comunity.backend.dept.dto.DeptDto;
-import com.compony_comunity.backend.dept.entity.Dept;
+import com.company_community.backend.dept.dto.DeptDto;
+import com.company_community.backend.dept.entity.Dept;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

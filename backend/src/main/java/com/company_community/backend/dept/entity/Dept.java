@@ -1,6 +1,6 @@
-package com.compony_comunity.backend.dept.entity;
+package com.company_community.backend.dept.entity;
 
-import com.compony_comunity.backend.common.BaseTimeEntity;
+import com.company_community.backend.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
