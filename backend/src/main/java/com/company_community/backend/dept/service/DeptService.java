@@ -1,8 +1,8 @@
-package com.compony_comunity.backend.dept.service;
+package com.company_community.backend.dept.service;
 
-import com.compony_comunity.backend.dept.dto.DeptDto;
-import com.compony_comunity.backend.dept.entity.Dept;
-import com.compony_comunity.backend.dept.repository.DeptRepository;
+import com.company_community.backend.dept.dto.DeptDto;
+import com.company_community.backend.dept.entity.Dept;
+import com.company_community.backend.dept.repository.DeptRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

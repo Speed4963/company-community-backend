@@ -1,7 +1,7 @@
-package com.compony_comunity.backend.Emp.Controller;
+package com.company_community.backend.Emp.Controller;
 
-import com.compony_comunity.backend.Emp.Dto.EmpDto;
-import com.compony_comunity.backend.Emp.Service.EmpService;
+import com.company_community.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Service.EmpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

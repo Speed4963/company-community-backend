@@ -1,7 +1,7 @@
-package com.compony_comunity.backend.Emp.Service;
+package com.company_community.backend.Emp.Service;
 
-import com.compony_comunity.backend.Emp.Dto.EmpDto;
-import com.compony_comunity.backend.Emp.Repository.EmpRepository;
+import com.company_community.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Repository.EmpRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
