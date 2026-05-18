@@ -26,6 +26,11 @@ public class EmpEntity {
     @Column(name = "JOB", length = 255)
     private String job; // Job Title/Position
 
+
+
+//    @Column(name = "PASSWORD", nullable = false)
+//    private String password; // Login Password (Encrypted)
+
     @Column(name = "HIREDATE")
     private LocalDate hiredate; // Date of Hire
 
@@ -46,7 +51,7 @@ public class EmpEntity {
      * @Transient: DB 테이블 컬럼과 매핑하지 않음.
      * 오직 객체 간 데이터 전달(Builder 사용 등)을 위해 존재함.
      */
-    @Transient
+    @Column(name = "DNO", insertable = false, updatable = false)
     private Integer dno;
 
     @ManyToOne(fetch = FetchType.LAZY)
