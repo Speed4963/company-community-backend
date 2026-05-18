@@ -1,5 +1,7 @@
 package com.company_community.backend.Emp.Service;
 
+import com.company_community.backend.Emp.Dto.EmpDto;
+import com.company_community.backend.Emp.Dto.LoginRequest;
 import com.company_community.backend.Emp.Entity.EmpEntity;
 import com.company_community.backend.Emp.Repository.EmpRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,22 @@ import java.util.stream.Collectors;
 public class EmpService {
 
     private final EmpRepository empRepository;
+
+    /**
+     * 사원번호, 이름, 생년월일을 이용한 로그인 로직
+     * 반환 타입을 EmpEntity에서 EmpDto로 변경하여 dno를 포함시킵니다.
+     */
+    public EmpEntity login(LoginRequest loginRequest) {
+        // 1. Repository를 통해 세 정보가 일치하는 사용자가 있는지 조회
+        EmpEntity emp = empRepository.findByEnoAndEnameAndBirthdate(
+                loginRequest.getEno(),
+                loginRequest.getEname(),
+                loginRequest.getBirthdate()
+        ).orElseThrow(() -> new IllegalArgumentException("입력하신 정보와 일치하는 사원이 없습니다."));
+
+        // 2. 일치하면 DTO로 변환하여 반환
+        return convertToEntity(emp);
+    }
 
     /**
      * 사원번호(ENO)로 사원 상세 정보 조회 (로그인 및 상세 페이지용)
