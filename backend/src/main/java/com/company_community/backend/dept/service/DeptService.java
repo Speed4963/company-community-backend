@@ -1,5 +1,6 @@
 package com.company_community.backend.dept.service;
 
+import com.company_community.backend.Emp.Repository.EmpRepository;
 import com.company_community.backend.dept.dto.DeptDto;
 import com.company_community.backend.dept.entity.Dept;
 import com.company_community.backend.dept.repository.DeptRepository;
@@ -17,7 +18,7 @@ import java.util.Optional;
 public class DeptService {
 
     private final DeptRepository deptRepository;
-    // private final EmpRepository empRepository; // 사원 리포지토리 (추후 생성 시 주입)
+//     private final EmpRepository empRepository;
 
     // 1. 부서 전체 조회 (페이징 + 검색)
     public Page<DeptDto> getDeptList(String searchKeyword, Pageable pageable) {
