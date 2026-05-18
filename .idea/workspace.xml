@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cd5a636-c6ea-4b64-abc8-ec6ebd4da64c" name="변경" comment="" />
+    <list default="true" id="715d9877-e39d-4d6e-bb79-a86481d021de" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,9 +11,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  "customColor": "",
+  "associatedIndex": 8
 }]]></component>
-  <component name="ProjectId" id="3DkYpRrs5bKGHBhxLfBnjorOaPh" />
+  <component name="ProjectId" id="3DszZZXyN3i50oZVfnOnn2FTnZs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,7 +25,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "dy",
+    "git-widget-placeholder": "dogyun",
     "kotlin-language-version-configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -39,12 +40,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="9cd5a636-c6ea-4b64-abc8-ec6ebd4da64c" name="변경" comment="" />
-      <created>1778827716405</created>
+      <changelist id="715d9877-e39d-4d6e-bb79-a86481d021de" name="변경" comment="" />
+      <created>1779085622695</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1778827716405</updated>
-      <workItem from="1778827718199" duration="43000" />
+      <updated>1779085622695</updated>
+      <workItem from="1779085624517" duration="29000" />
     </task>
     <servers />
   </component>
