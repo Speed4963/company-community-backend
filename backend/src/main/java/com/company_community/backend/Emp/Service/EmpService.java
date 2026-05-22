@@ -95,4 +95,44 @@ public class EmpService {
                 .updateTime(emp.getUpdateTime())
                 .build();
     }
+
+    /**
+     * 사원 정보 수정 (U)
+     * JPA의 더티 체킹(Dirty Checking)을 이용하여 변경 사항을 반영합니다.
+     */
+    @Transactional // 데이터 수정을 위해 쓰기 트랜잭션 활성화
+    public EmpEntity updateEmp(Long eno, EmpEntity updateRequest) {
+        // 1. 기존 사원 정보 조회 (없으면 예외 발생)
+        EmpEntity emp = empRepository.findByEno(eno)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사원번호를 가진 사원이 존재하지 않습니다. ENO: " + eno));
+
+        // 2. 변경할 정보들 세팅 (필요한 컬럼만 골라서 수정 가능)
+        emp.setEname(updateRequest.getEname());
+        emp.setJob(updateRequest.getJob());
+        emp.setHiredate(updateRequest.getHiredate());
+        emp.setBirthdate(updateRequest.getBirthdate());
+        emp.setPnumber(updateRequest.getPnumber());
+
+        // 부서 변경 대응 (일반 dno 변수 필드 수정)
+        emp.setDno(updateRequest.getDno());
+        // 만약 관계 맺은 dept 객체도 있다면 함께 세팅해주는 것이 안전합니다.
+        // emp.setDept(updateRequest.getDept());
+
+        // 3. 변경된 엔티티를 기존 방식처럼 다시 가공해서 반환
+        return convertToEntity(emp);
+    }
+
+    /**
+     * 사원 정보 삭제 (D)
+     */
+    @Transactional // 데이터 삭제를 위해 쓰기 트랜잭션 활성화
+    public void deleteEmp(Long eno) {
+        // 1. 존재하는 사원인지 먼저 검증
+        if (!empRepository.existsById(eno)) {
+            throw new IllegalArgumentException("해당 사원번호를 가진 사원이 존재하지 않습니다. ENO: " + eno);
+        }
+
+        // 2. 삭제 실행
+        empRepository.deleteById(eno);
+    }
 }
