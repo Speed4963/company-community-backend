@@ -27,12 +27,13 @@ public class CommunityService {
 
     @Transactional
     public Long createPost(PostCreateRequest request) { // 👈 String eno 파라미터 제거
-        // 빌더 패턴을 활용하여 엔티티 생성
+        // CommunityService.java 내 게시글 작성 부분
         PostEntity post = PostEntity.builder()
-                .eno(request.getEno()) // 👈 DTO에서 가져옴
+                .eno(request.getEno())
                 .postTitle(request.getPostTitle())
                 .postContent(request.getPostContent())
                 .imgUrl(request.getImgUrl())
+                .categoryId(request.getCategoryId()) // 👈 이 부분이 반드시 들어가야 합니다!
                 .build();
 
         return postRepository.save(post).getPostId();
