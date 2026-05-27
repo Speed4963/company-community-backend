@@ -10,20 +10,21 @@ import lombok.*;
 public class CommentEntity extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "COMMENT_SEQ_GEN", sequenceName = "SEQ_TB_COMMENTS", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMMENT_SEQ_GEN")
+    @Column(name = "COMMENT_ID")
     private Long commentId;
 
-    private String eno; // 작성자
+    private String eno;
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id") // 외래키 설정
-    private PostEntity post;
+    @Column(name = "POST_ID")
+    private Long postId;
 
     @Builder
-    public CommentEntity(String eno, String content, PostEntity post) {
+    public CommentEntity(String eno, String content, Long postId) {
         this.eno = eno;
         this.content = content;
-        this.post = post;
+        this.postId = postId;
     }
 }

@@ -46,7 +46,7 @@ public class CommunityService {
                         .postTitle(post.getPostTitle())
                         .eno(post.getEno())
                         .insert_time(post.getRegDate().toString()) // 날짜 변환
-                        .linkCount(post.getLinkCount())
+                        .linkCount(post.getLikeCount())
                         .build())
                 .toList();
     }
@@ -56,7 +56,7 @@ public class CommunityService {
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다. ID: " + postId));
 
         // 2. 해당 게시글의 댓글들 가져오기
-        List<CommentResponse> comments = commentRepository.findByPostPostId(postId).stream()
+        List<CommentResponse> comments = commentRepository.findByPostId(postId).stream()
                 .map(c -> CommentResponse.builder()
                         .commentId(c.getCommentId())
                         .eno(c.getEno())
@@ -71,7 +71,7 @@ public class CommunityService {
                 .postContent(post.getPostContent())
                 .eno(post.getEno())
                 .imgUrl(post.getImgUrl())
-                .likeCount(post.getLinkCount())
+                .likeCount(post.getLikeCount())
                 .insertTime(post.getRegDate() != null ? post.getRegDate().toString() : null) // 👈 여기!
                 .updateTime(post.getModDate() != null ? post.getModDate().toString() : null) // 👈 여기!
                 .comments(comments) // 👈 댓글 리스트 추가
@@ -98,12 +98,14 @@ public class CommunityService {
         PostEntity post = postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
 
+        // CommunityService.java
         CommentEntity comment = CommentEntity.builder()
                 .eno(request.getEno())
                 .content(request.getContent())
-                .post(post)
+                .postId(postId) // 👈 이제 Long 타입인 postId를 넣으면 오류가 사라집니다.
                 .build();
 
         commentRepository.save(comment);
     }
+
 }
