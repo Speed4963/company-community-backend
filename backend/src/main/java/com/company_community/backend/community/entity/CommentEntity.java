@@ -10,7 +10,12 @@ import lombok.*;
 public class CommentEntity extends BaseTimeEntity {
 
     @Id
-    @SequenceGenerator(name = "COMMENT_SEQ_GEN", sequenceName = "SEQ_TB_COMMENTS", allocationSize = 1)
+    @SequenceGenerator(
+            name = "COMMENT_SEQ_GEN",
+            sequenceName = "SEQ_TB_COMMENTS",
+            initialValue = 1,
+            allocationSize = 1
+    )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMMENT_SEQ_GEN")
     @Column(name = "COMMENT_ID")
     private Long commentId;
