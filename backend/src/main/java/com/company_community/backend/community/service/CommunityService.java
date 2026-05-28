@@ -60,7 +60,7 @@ public class CommunityService {
         List<CommentResponse> comments = commentRepository.findByPostId(postId).stream()
                 .map(c -> CommentResponse.builder()
                         .commentId(c.getCommentId())
-                        .eno(c.getEno())
+                        .eno(String.valueOf(c.getEno()))
                         .content(c.getContent())
                         .insertTime(c.getRegDate() != null ? c.getRegDate().toString() : null)
                         .build())
@@ -96,6 +96,8 @@ public class CommunityService {
 
     @Transactional
     public void createComment(Long postId, CommentCreateRequest request) {
+
+        System.out.println("DEBUG: postId=" + postId + ", eno=" + request.getEno() + ", content=" + request.getContent());
         PostEntity post = postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
 
