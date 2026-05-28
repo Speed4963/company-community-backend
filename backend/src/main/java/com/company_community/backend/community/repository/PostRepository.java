@@ -16,4 +16,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Long> {
 
     // 예: 제목으로 검색하고 싶을 때
     List<PostEntity> findByPostTitleContaining(String keyword);
+
+    // 최신순(내림차순) 정렬 예시
+    List<PostEntity> findAllByOrderByPostIdDesc();
 }

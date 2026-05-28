@@ -44,4 +44,11 @@ public class PostEntity extends BaseTimeEntity {
         this.postContent = postContent;
         this.imgUrl = imgUrl;
     }
+
+    // 1. 추천 수 증가 메서드
+    public void increaseLikeCount() {
+        this.likeCount += 1;
+    }
+
+
 }

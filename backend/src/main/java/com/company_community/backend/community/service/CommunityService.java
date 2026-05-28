@@ -39,14 +39,15 @@ public class CommunityService {
         return postRepository.save(post).getPostId();
     }
 
-    // CommunityService.java 내부에 추가
+    // CommunityService.java
     public List<PostListResponse> getPostList() {
-        return postRepository.findAll().stream() // 전체 조회
+        // findAll() 대신 정렬된 메서드를 호출
+        return postRepository.findAllByOrderByPostIdDesc().stream()
                 .map(post -> PostListResponse.builder()
                         .postId(post.getPostId())
                         .postTitle(post.getPostTitle())
                         .eno(post.getEno())
-                        .insert_time(post.getRegDate().toString()) // 날짜 변환
+                        .insert_time(post.getRegDate() != null ? post.getRegDate().toString() : "")
                         .linkCount(post.getLikeCount())
                         .build())
                 .toList();
@@ -92,6 +93,16 @@ public class CommunityService {
     @Transactional
     public void deletePost(Long postId) {
         postRepository.deleteById(postId);
+    }
+
+    @Transactional
+    public void recommendPost(Long postId) {
+        PostEntity post = postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
+
+        // 추천수 1 증가 (Entity에 해당 메서드 추가 필요)
+        post.increaseLikeCount();
+        postRepository.save(post);
     }
 
     @Transactional

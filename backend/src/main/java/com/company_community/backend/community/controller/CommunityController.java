@@ -60,4 +60,11 @@ public class CommunityController {
         return ResponseEntity.ok().build();
     }
 
+    // CommunityController.java
+    @PostMapping("/posts/{postId}/recommend")
+    public ResponseEntity<String> recommendPost(@PathVariable Long postId) {
+        communityService.recommendPost(postId);
+        return ResponseEntity.ok("추천 성공");
+    }
+
 }
